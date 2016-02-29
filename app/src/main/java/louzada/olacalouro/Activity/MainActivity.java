@@ -33,10 +33,8 @@ public class MainActivity extends AppCompatActivity
         List<Telefone> telefones = new ArrayList<Telefone>();
         Telefone telefone = new Telefone();
         dao = new OlaCalouroDAO(this);
-        Log.i("Comeca","inicio");
-
         telefone = dao.buscarTelefonePorId(numero);
-        Log.i("Comeca","buscou");
+        Log.i("Comeca",telefone.getNome());
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

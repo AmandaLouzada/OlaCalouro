@@ -15,7 +15,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     private static final String BANCO_DADOS = "OlaCalouro";
-    private static int VERSAO = 2;
+    private static int VERSAO = 4;
 
 
     public  static  class  Telefone {
@@ -61,9 +61,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "nome TEXT, latitude REAL, longitude REAL, descricao TEXT, tipo INTEGER);");
         db.execSQL("INSERT INTO LOCAL (nome, latitude, longitude, descricao, tipo) values('RU', -10.177970, -48.358580, 'Restaurante Universitário', 5);");
         db.execSQL("INSERT INTO LOCAL (nome, latitude, longitude, descricao, tipo) values('Bloco B',-10.180177, -48.360549, 'Salas de aula', 1);");
-        db.execSQL("INSERT INTO LOCAL (nome, latitude, longitude, descricao, tipo) values('Bloco IV', -10.178171, -48.361831, 'Reitoria', 1);");
-        db.execSQL("INSERT INTO LOCAL (nome, latitude, longitude, descricao, tipo) values('Lanchonete', -10.176671, -48.361853, 'Lanchonete cara', 5);");
-        db.execSQL("INSERT INTO LOCAL (nome, latitude, longitude, descricao, tipo) values('Bloco I', -10.178675, -48.361303, 'Laboratórios e Caixas Eletrônico', 1);");
+        db.execSQL("INSERT INTO LOCAL (nome, latitude, longitude, descricao, tipo) values('Bloco IV', -10.176671, -48.361853, 'Reitoria', 1);");
+        db.execSQL("INSERT INTO LOCAL (nome, latitude, longitude, descricao, tipo) values('Lanchonete', -10.178678, -48.361316, 'Lanchonete cara', 5);");
+        db.execSQL("INSERT INTO LOCAL (nome, latitude, longitude, descricao, tipo) values('Bloco I', -10.178171, -48.361831, 'Laboratórios e Caixas Eletrônico', 1);");
     }
 
     @Override

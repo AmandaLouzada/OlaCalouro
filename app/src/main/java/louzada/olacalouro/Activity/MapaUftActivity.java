@@ -2,7 +2,6 @@ package louzada.olacalouro.Activity;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -12,24 +11,31 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import louzada.olacalouro.R;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-public class MapaUftActivity extends AppCompatActivity implements OnMapReadyCallback {
+import louzada.olacalouro.OlaCalouroDAO;
+import louzada.olacalouro.R;
+import louzada.olacalouro.domain.Local;
+
+public class MapaUftActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private OlaCalouroDAO dao;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mapa_uft);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+        dao = new OlaCalouroDAO(this);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 
@@ -50,5 +56,18 @@ public class MapaUftActivity extends AppCompatActivity implements OnMapReadyCall
         LatLng uft = new LatLng(-10.178709,-48.360024);
         mMap.addMarker(new MarkerOptions().position(uft).title("UFT"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(uft, 18));
+        adicionarMarcadores();
+    }
+
+    public void adicionarMarcadores(){
+
+        List<Local> listaLocais = dao.listarLocais();
+
+        for (Local local : listaLocais) {
+            LatLng posicaoMarcador = new LatLng(local.getLat(), local.getLng());
+            mMap.addMarker(new MarkerOptions().position(posicaoMarcador).title(local.getNome()).snippet(local.getDescricao()));
+
+        }
+
     }
 }

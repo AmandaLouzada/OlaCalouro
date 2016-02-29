@@ -51,13 +51,11 @@ public class OlaCalouroDAO {
         Cursor cursor = getDb().query(DatabaseHelper.Telefone.TABELA, DatabaseHelper.Telefone.COLUNAS, DatabaseHelper.Telefone._ID + "=?", new String[]{id.toString()},
                 null, null, null);
 
-        Log.i("MSG","apartir daqui");
+
         if(cursor.getCount()>0){
             cursor.moveToFirst();
-            Log.i("MSG", "apartir daqui2");
             Telefone telefone = criarTelefone(cursor);
             cursor.close();
-            Log.i("MSG", "Aqui");
             return telefone;
         }
         return null;
@@ -90,11 +88,11 @@ public class OlaCalouroDAO {
     }
 
     private Telefone criarTelefone(Cursor cursor) {
-        Log.i("ID",String.valueOf(cursor.getColumnIndex(DatabaseHelper.Telefone._ID)));
-        Log.i("TEL", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Telefone.TELEFONE)));
-        Log.i("CAT", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Telefone.CATEGORIA)));
-        Log.i("DESC", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Telefone.DESCRICAO)));
-        Log.i("NOME", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Telefone.NOME)));
+//        Log.i("ID",String.valueOf(cursor.getColumnIndex(DatabaseHelper.Telefone._ID)));
+//        Log.i("TEL", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Telefone.TELEFONE)));
+//        Log.i("CAT", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Telefone.CATEGORIA)));
+//        Log.i("DESC", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Telefone.DESCRICAO)));
+//        Log.i("NOME", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Telefone.NOME)));
         Telefone telefone = new Telefone(cursor.getLong(cursor.getColumnIndex(DatabaseHelper.Telefone._ID)),
                 cursor.getString(cursor.getColumnIndex(DatabaseHelper.Telefone.NOME)),
                 cursor.getString(cursor.getColumnIndex(DatabaseHelper.Telefone.TELEFONE)),
@@ -106,8 +104,8 @@ public class OlaCalouroDAO {
     // Metodos classe LOCAL
 
     public List<Local> listarLocais(){
-        Cursor cursor = getDb().query(DatabaseHelper.Telefone.TABELA,
-                DatabaseHelper.Telefone.COLUNAS,
+        Cursor cursor = getDb().query(DatabaseHelper.Local.TABELA,
+                DatabaseHelper.Local.COLUNAS,
                 null, null, null, null, null);
         List<Local> locais = new ArrayList<Local>();
         while(cursor.moveToNext()){
@@ -119,7 +117,7 @@ public class OlaCalouroDAO {
     }
 
     public Local buscarLocalPorId(Long id){
-        Cursor cursor = getDb().query(DatabaseHelper.Telefone.TABELA, DatabaseHelper.Telefone.COLUNAS, DatabaseHelper.Telefone._ID + "=?", new String[]{id.toString()},
+        Cursor cursor = getDb().query(DatabaseHelper.Local.TABELA, DatabaseHelper.Local.COLUNAS, DatabaseHelper.Local._ID + "=?", new String[]{id.toString()},
                 null, null, null);
 
         if(cursor.getCount()>0){
@@ -161,6 +159,12 @@ public class OlaCalouroDAO {
     }
 
     private Local criarLocal (Cursor cursor) {
+        Log.i("ID",String.valueOf(cursor.getColumnIndex(DatabaseHelper.Local._ID)));
+        Log.i("NOME", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Local.NOME)));
+        Log.i("LAT", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Local.LATITUDE)));
+        Log.i("LNG", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Local.LONGITUDE)));
+        Log.i("DESC", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Local.DESCRICAO)));
+        Log.i("INT", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Local.TIPO)));
 
         Local local = new Local(cursor.getLong(cursor.getColumnIndex(DatabaseHelper.Local._ID)),
                 cursor.getString(cursor.getColumnIndex(DatabaseHelper.Local.NOME)),
