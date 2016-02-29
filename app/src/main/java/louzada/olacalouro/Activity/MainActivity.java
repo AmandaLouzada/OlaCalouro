@@ -17,7 +17,7 @@ import java.util.List;
 
 import louzada.olacalouro.OlaCalouroDAO;
 import louzada.olacalouro.R;
-import louzada.olacalouro.domain.Local;
+import louzada.olacalouro.domain.Telefone;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -30,12 +30,12 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        List<Local> locais = new ArrayList<Local>();
-        Local local = new Local();
+        List<Telefone> telefones = new ArrayList<Telefone>();
+        Telefone telefone = new Telefone();
         dao = new OlaCalouroDAO(this);
         Log.i("Comeca","inicio");
 
-        local = dao.buscarLocalPorId(numero);
+        telefone = dao.buscarTelefonePorId(numero);
         Log.i("Comeca","buscou");
 
 

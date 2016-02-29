@@ -3,7 +3,7 @@ package louzada.olacalouro.domain;
 /**
  * Created by amanda on 22/02/16.
  */
-public class Local {
+public class Telefone {
     public static final String ID = "_id";
     public static final String NOME = "nome";
     public static final String DESCRICAO = "descricao";
@@ -17,7 +17,7 @@ public class Local {
     private Integer categoria;
 
 
-    public Local(Long id, String nome, String descricao, String telefone, Integer categoria){
+    public Telefone(Long id, String nome, String descricao, String telefone, Integer categoria){
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -25,7 +25,7 @@ public class Local {
         this.categoria = categoria;
     }
 
-    public Local(){
+    public Telefone(){
         this.id = null;
         this.nome = null;
         this.descricao = null;

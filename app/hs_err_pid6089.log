@@ -196,9 +196,9 @@ Event: 47,810 GC heap before
   object space 16384K, 26% used [0x6b140000,0x6b56e1b0,0x6c140000)
 
 Deoptimization events (10 events):
-Event: 31,957 Thread 0x67254000 Uncommon trap: reason=class_check action=maybe_recompile pc=0xb328dfd0 method=com.android.dx.ssa.SsaConverter.placePhiFunctions(Lcom/android/dx/ssa/SsaMethod;Lcom/android/dx/ssa/LocalVariableInfo;I)V @ 257
-Event: 32,123 Thread 0x67253800 Uncommon trap: reason=class_check action=maybe_recompile pc=0xb328dfd0 method=com.android.dx.ssa.SsaConverter.placePhiFunctions(Lcom/android/dx/ssa/SsaMethod;Lcom/android/dx/ssa/LocalVariableInfo;I)V @ 257
-Event: 32,174 Thread 0x67255800 Uncommon trap: reason=class_check action=maybe_recompile pc=0xb328dfd0 method=com.android.dx.ssa.SsaConverter.placePhiFunctions(Lcom/android/dx/ssa/SsaMethod;Lcom/android/dx/ssa/LocalVariableInfo;I)V @ 257
+Event: 31,957 Thread 0x67254000 Uncommon trap: reason=class_check action=maybe_recompile pc=0xb328dfd0 method=com.android.dx.ssa.SsaConverter.placePhiFunctions(Lcom/android/dx/ssa/SsaMethod;Lcom/android/dx/ssa/TelefoneVariableInfo;I)V @ 257
+Event: 32,123 Thread 0x67253800 Uncommon trap: reason=class_check action=maybe_recompile pc=0xb328dfd0 method=com.android.dx.ssa.SsaConverter.placePhiFunctions(Lcom/android/dx/ssa/SsaMethod;Lcom/android/dx/ssa/TelefoneVariableInfo;I)V @ 257
+Event: 32,174 Thread 0x67255800 Uncommon trap: reason=class_check action=maybe_recompile pc=0xb328dfd0 method=com.android.dx.ssa.SsaConverter.placePhiFunctions(Lcom/android/dx/ssa/SsaMethod;Lcom/android/dx/ssa/TelefoneVariableInfo;I)V @ 257
 Event: 32,176 Thread 0xb6207c00 Uncommon trap: reason=unstable_if action=reinterpret pc=0xb332efe8 method=com.android.dx.ssa.SCCP.simulateStmt(Lcom/android/dx/ssa/SsaInsn;)V @ 59
 Event: 36,498 Thread 0x67254000 Uncommon trap: reason=class_check action=maybe_recompile pc=0xb33b9b78 method=com.android.dx.ssa.back.InterferenceGraph.mergeInterferenceSet(ILcom/android/dx/util/IntSet;)V @ 20
 Event: 36,690 Thread 0x67253800 Uncommon trap: reason=class_check action=maybe_recompile pc=0xb33b9b78 method=com.android.dx.ssa.back.InterferenceGraph.mergeInterferenceSet(ILcom/android/dx/util/IntSet;)V @ 20
@@ -322,7 +322,7 @@ Dynamic libraries:
 674e0000-6755e000 rw-p 00000000 00:00 0          [stack:6133]
 6755e000-67561000 ---p 00000000 00:00 0 
 67561000-675af000 rw-p 00000000 00:00 0          [stack:6132]
-675af000-677af000 r--p 00000000 08:02 4858393    /usr/lib/locale/locale-archive
+675af000-677af000 r--p 00000000 08:02 4858393    /usr/lib/telefonee/telefonee-archive
 677af000-677b2000 ---p 00000000 00:00 0 
 677b2000-67800000 rw-p 00000000 00:00 0          [stack:6118]
 67800000-678fe000 rw-p 00000000 00:00 0 
@@ -379,7 +379,7 @@ Dynamic libraries:
 6c140000-73140000 rw-p 00000000 00:00 0 
 73140000-83300000 rw-p 00000000 00:00 0 
 8acd7000-8acde000 r--s 00000000 08:02 4852500    /usr/lib/i386-linux-gnu/gconv/gconv-modules.cache
-8acde000-8ad00000 r--p 00000000 08:02 6818542    /usr/share/locale-langpack/pt_BR/LC_MESSAGES/libc.mo
+8acde000-8ad00000 r--p 00000000 08:02 6818542    /usr/share/telefonee-langpack/pt_BR/LC_MESSAGES/libc.mo
 8ad00000-9dbc0000 rw-p 00000000 00:00 0 
 9dbc0000-b3140000 rw-p 00000000 00:00 0 
 b3140000-b314b000 rw-p 00000000 00:00 0 
@@ -403,7 +403,7 @@ b6343000-b6344000 r--p 00016000 08:02 6567169    /lib/i386-linux-gnu/libnsl-2.21
 b6344000-b6345000 rw-p 00017000 08:02 6567169    /lib/i386-linux-gnu/libnsl-2.21.so
 b6345000-b6347000 rw-p 00000000 00:00 0 
 b6347000-b634b000 r--s 0003c000 08:02 4866519    /usr/lib/jvm/java-7-openjdk-i386/jre/lib/ext/sunpkcs11.jar
-b634b000-b634f000 r--s 00085000 08:02 4866516    /usr/lib/jvm/java-7-openjdk-i386/jre/lib/ext/localedata.jar
+b634b000-b634f000 r--s 00085000 08:02 4866516    /usr/lib/jvm/java-7-openjdk-i386/jre/lib/ext/telefoneedata.jar
 b634f000-b6353000 r--s 00034000 08:02 4866518    /usr/lib/jvm/java-7-openjdk-i386/jre/lib/ext/sunjce_provider.jar
 b6353000-b635b000 r-xp 00000000 08:02 4866534    /usr/lib/jvm/java-7-openjdk-i386/jre/lib/i386/libzip.so
 b635b000-b635c000 r--p 00007000 08:02 4866534    /usr/lib/jvm/java-7-openjdk-i386/jre/lib/i386/libzip.so
@@ -474,7 +474,7 @@ Launcher Type: SUN_STANDARD
 
 Environment Variables:
 JAVA_HOME=/usr/lib/jvm/java-7-openjdk-i386
-PATH=/home/amanda/.sdkman/candidates/grails/current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+PATH=/home/amanda/.sdkman/candidates/grails/current/bin:/usr/telefone/sbin:/usr/telefone/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/telefone/games
 LD_LIBRARY_PATH=/home/amanda/android-studio/bin:
 SHELL=/bin/zsh
 DISPLAY=:0

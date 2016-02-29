@@ -269,7 +269,7 @@ Dynamic libraries:
 67431000-674af000 rw-p 00000000 00:00 0          [stack:26933]
 674af000-674b2000 ---p 00000000 00:00 0 
 674b2000-67500000 rw-p 00000000 00:00 0          [stack:26932]
-67500000-67700000 r--p 00000000 08:02 4858393    /usr/lib/locale/locale-archive
+67500000-67700000 r--p 00000000 08:02 4858393    /usr/lib/telefonee/telefonee-archive
 67700000-677fe000 rw-p 00000000 00:00 0 
 677fe000-67800000 ---p 00000000 00:00 0 
 67800000-67821000 rw-p 00000000 00:00 0 
@@ -335,7 +335,7 @@ Dynamic libraries:
 77e80000-9db40000 rw-p 00000000 00:00 0 
 9db40000-a9b40000 rw-p 00000000 00:00 0 
 ad057000-ad05e000 r--s 00000000 08:02 4852500    /usr/lib/i386-linux-gnu/gconv/gconv-modules.cache
-ad05e000-ad080000 r--p 00000000 08:02 6818542    /usr/share/locale-langpack/pt_BR/LC_MESSAGES/libc.mo
+ad05e000-ad080000 r--p 00000000 08:02 6818542    /usr/share/telefonee-langpack/pt_BR/LC_MESSAGES/libc.mo
 ad080000-b30c0000 rw-p 00000000 00:00 0 
 b30c3000-b30c6000 r-xp 00000000 08:02 4853797    /usr/lib/i386-linux-gnu/libgmodule-2.0.so.0.4600.1
 b30c6000-b30c7000 r--p 00002000 08:02 4853797    /usr/lib/i386-linux-gnu/libgmodule-2.0.so.0.4600.1
@@ -356,7 +356,7 @@ b61de000-b61df000 r--p 00016000 08:02 6567169    /lib/i386-linux-gnu/libnsl-2.21
 b61df000-b61e0000 rw-p 00017000 08:02 6567169    /lib/i386-linux-gnu/libnsl-2.21.so
 b61e0000-b61e2000 rw-p 00000000 00:00 0 
 b61e2000-b61e6000 r--s 0003c000 08:02 4866519    /usr/lib/jvm/java-7-openjdk-i386/jre/lib/ext/sunpkcs11.jar
-b61e6000-b61ea000 r--s 00085000 08:02 4866516    /usr/lib/jvm/java-7-openjdk-i386/jre/lib/ext/localedata.jar
+b61e6000-b61ea000 r--s 00085000 08:02 4866516    /usr/lib/jvm/java-7-openjdk-i386/jre/lib/ext/telefoneedata.jar
 b61ea000-b61ee000 r--s 00034000 08:02 4866518    /usr/lib/jvm/java-7-openjdk-i386/jre/lib/ext/sunjce_provider.jar
 b61ee000-b61f6000 r-xp 00000000 08:02 4866534    /usr/lib/jvm/java-7-openjdk-i386/jre/lib/i386/libzip.so
 b61f6000-b61f7000 r--p 00007000 08:02 4866534    /usr/lib/jvm/java-7-openjdk-i386/jre/lib/i386/libzip.so
@@ -432,7 +432,7 @@ Launcher Type: SUN_STANDARD
 
 Environment Variables:
 JAVA_HOME=/usr/lib/jvm/java-7-openjdk-i386
-PATH=/home/amanda/.sdkman/candidates/grails/current/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+PATH=/home/amanda/.sdkman/candidates/grails/current/bin:/usr/telefone/sbin:/usr/telefone/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/telefone/games
 LD_LIBRARY_PATH=/home/amanda/android-studio/bin:
 SHELL=/bin/zsh
 DISPLAY=:0

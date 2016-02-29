@@ -10,7 +10,7 @@ import android.widget.TabHost;
 
 import louzada.olacalouro.OlaCalouroDAO;
 import louzada.olacalouro.R;
-import louzada.olacalouro.domain.Local;
+import louzada.olacalouro.domain.Telefone;
 
 public class TelefoneActivity extends FragmentActivity {
 

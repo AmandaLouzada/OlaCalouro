@@ -18,8 +18,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static int VERSAO = 1;
 
 
-    public  static  class  Local {
-        public static final  String TABELA = "local";
+    public  static  class  Telefone {
+        public static final  String TABELA = "telefone";
         public static final  String _ID = "_id";
         public static final  String NOME = "nome";
         public static final  String TELEFONE = "telefone";
@@ -37,11 +37,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE LOCAL (_id INTEGER PRIMARY KEY," +
+        db.execSQL("CREATE TABLE TELEFONE (_id INTEGER PRIMARY KEY," +
                 "nome TEXT, telefone TEXT, descricao TEXT, categoria INTEGER);");
-        db.execSQL("INSERT INTO LOCAL (nome, telefone, descricao, categoria) values('Proest', '321855871', 'Assuntos estudantis', 1);");
-        db.execSQL("INSERT INTO LOCAL (nome, telefone, descricao, categoria) values('DICOM', '321855871', 'Comunicação', 2);");
-        db.execSQL("INSERT INTO LOCAL (nome, telefone, descricao, categoria) values('DTI', '321855871', 'Tecnologia da informação',3);");
+        db.execSQL("INSERT INTO TELEFONE (nome, telefone, descricao, categoria) values('Proest', '321855871', 'Assuntos estudantis', 1);");
+        db.execSQL("INSERT INTO TELEFONE (nome, telefone, descricao, categoria) values('DICOM', '321855871', 'Comunicação', 2);");
+        db.execSQL("INSERT INTO TELEFONE (nome, telefone, descricao, categoria) values('DTI', '321855871', 'Tecnologia da informação',3);");
     }
 
     @Override
