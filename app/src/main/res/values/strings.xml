@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">OlaCalouro</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_mapa_uft">Mapa</string>
+    <string name="title_activity_ru">Restaurante Universitário</string>
+    <string name="title_activity_telefone">Telefones uteis</string>
+    <string name="title_activity_telefone2">telefone2</string>
+    <string name="title_activity_telefone3">telefone3</string>
+    <string name="TabOne">Primeira tab</string>
+    <string name="tabThree">Terceira Tab</string>
+    <string name="tabTwo">Segunda</string>
+    <string name="textoFone">TEXTAO</string>
+</resources>

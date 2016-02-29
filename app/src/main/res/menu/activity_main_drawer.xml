@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_mapa"
+            android:icon="@drawable/ic_mapa"
+            android:title="Mapa UFT" />
+        <item
+            android:id="@+id/nav_ru"
+            android:icon="@drawable/ic_ru"
+            android:title="Restaurante Universitário" />
+        <item
+            android:id="@+id/nav_portal_aluno"
+            android:icon="@drawable/ic_portal_aluno"
+            android:title="Portal do Aluno" />
+        <item
+            android:id="@+id/nav_biblioteca"
+            android:icon="@drawable/ic_biblioteca"
+            android:title="Biblioteca" />
+        <item
+            android:id="@+id/nav_telefones"
+            android:icon="@drawable/ic_telefone"
+            android:title="Telefones uteis" />
+    </group>
+
+</menu>
