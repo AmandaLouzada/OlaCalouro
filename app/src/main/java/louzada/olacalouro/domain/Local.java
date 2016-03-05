@@ -36,7 +36,10 @@ public class Local {
         this.tipo = null;
     }
 
-
+    @Override
+    public String toString() {
+        return nome;
+    }
     public void  setId(long id) {
         id = this.id;
     }

@@ -9,8 +9,10 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import louzada.olacalouro.domain.Aresta;
 import louzada.olacalouro.domain.Local;
 import louzada.olacalouro.domain.Telefone;
+import louzada.olacalouro.domain.Vertice;
 
 /**
  * Created by amanda on 25/02/16.
@@ -51,7 +53,6 @@ public class OlaCalouroDAO {
         Cursor cursor = getDb().query(DatabaseHelper.Telefone.TABELA, DatabaseHelper.Telefone.COLUNAS, DatabaseHelper.Telefone._ID + "=?", new String[]{id.toString()},
                 null, null, null);
 
-
         if(cursor.getCount()>0){
             cursor.moveToFirst();
             Telefone telefone = criarTelefone(cursor);
@@ -88,11 +89,7 @@ public class OlaCalouroDAO {
     }
 
     private Telefone criarTelefone(Cursor cursor) {
-//        Log.i("ID",String.valueOf(cursor.getColumnIndex(DatabaseHelper.Telefone._ID)));
-//        Log.i("TEL", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Telefone.TELEFONE)));
-//        Log.i("CAT", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Telefone.CATEGORIA)));
-//        Log.i("DESC", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Telefone.DESCRICAO)));
-//        Log.i("NOME", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Telefone.NOME)));
+
         Telefone telefone = new Telefone(cursor.getLong(cursor.getColumnIndex(DatabaseHelper.Telefone._ID)),
                 cursor.getString(cursor.getColumnIndex(DatabaseHelper.Telefone.NOME)),
                 cursor.getString(cursor.getColumnIndex(DatabaseHelper.Telefone.TELEFONE)),
@@ -118,6 +115,19 @@ public class OlaCalouroDAO {
 
     public Local buscarLocalPorId(Long id){
         Cursor cursor = getDb().query(DatabaseHelper.Local.TABELA, DatabaseHelper.Local.COLUNAS, DatabaseHelper.Local._ID + "=?", new String[]{id.toString()},
+                null, null, null);
+
+        if(cursor.getCount()>0){
+            cursor.moveToFirst();
+            Local local = criarLocal(cursor);
+            cursor.close();
+            return local;
+        }
+        return null;
+    }
+
+    public Local buscarLocalPorNome(String nome){
+        Cursor cursor = getDb().query(DatabaseHelper.Local.TABELA, DatabaseHelper.Local.COLUNAS, DatabaseHelper.Local.NOME + "=?", new String[]{nome.toString()},
                 null, null, null);
 
         if(cursor.getCount()>0){
@@ -159,13 +169,6 @@ public class OlaCalouroDAO {
     }
 
     private Local criarLocal (Cursor cursor) {
-        Log.i("ID",String.valueOf(cursor.getColumnIndex(DatabaseHelper.Local._ID)));
-        Log.i("NOME", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Local.NOME)));
-        Log.i("LAT", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Local.LATITUDE)));
-        Log.i("LNG", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Local.LONGITUDE)));
-        Log.i("DESC", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Local.DESCRICAO)));
-        Log.i("INT", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Local.TIPO)));
-
         Local local = new Local(cursor.getLong(cursor.getColumnIndex(DatabaseHelper.Local._ID)),
                 cursor.getString(cursor.getColumnIndex(DatabaseHelper.Local.NOME)),
                 cursor.getDouble(cursor.getColumnIndex(DatabaseHelper.Local.LATITUDE)),
@@ -173,6 +176,102 @@ public class OlaCalouroDAO {
                 cursor.getString(cursor.getColumnIndex(DatabaseHelper.Local.DESCRICAO)),
                 cursor.getInt(cursor.getColumnIndex(DatabaseHelper.Local.TIPO)));
         return local;
+    }
+
+    //Metodos da Classe Vertice
+
+    public List<Vertice> listarVertices(){
+        Cursor cursor = getDb().query(DatabaseHelper.Vertice.TABELA,
+                DatabaseHelper.Vertice.COLUNAS,
+                null, null, null, null, null);
+        Log.i("ID", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Vertice._ID)));
+        Log.i("NOME", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Vertice.NOME)));
+        Log.i("LAT", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Vertice.LATITUDE)));
+        Log.i("LNG", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Vertice.LONGITUDE)));
+
+        List<Vertice> vertices = new ArrayList<Vertice>();
+        while(cursor.moveToNext()){
+            Vertice vertice = criarVertice(cursor);
+            vertices.add(vertice);
+        }
+        cursor.close();
+        return vertices;
+    }
+
+    public Vertice buscarVerticePorId(Long id){
+        Cursor cursor = getDb().query(DatabaseHelper.Vertice.TABELA, DatabaseHelper.Vertice.COLUNAS, DatabaseHelper.Vertice._ID + "=?", new String[]{id.toString()},
+                null, null, null);
+
+        if(cursor.moveToNext()){
+            Vertice vertice = criarVertice(cursor);
+            cursor.close();
+            return vertice;
+        }
+        return null;
+    }
+
+    public Vertice buscarVerticePorLocalId(Long id){
+        Cursor cursor = getDb().query(DatabaseHelper.Vertice.TABELA, DatabaseHelper.Vertice.COLUNAS, DatabaseHelper.Vertice.ID_LOCAL + "=?", new String[]{id.toString()},
+                null, null, null);
+        if(cursor.moveToNext()){
+            Vertice vertice = criarVertice(cursor);
+            cursor.close();
+            return vertice;
+        }
+        return null;
+    }
+
+    private Vertice criarVertice (Cursor cursor) {
+
+        Log.i("ID", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Vertice._ID)));
+        Log.i("NOME", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Vertice.NOME)));
+        Log.i("LAT", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Vertice.LATITUDE)));
+        Log.i("LNG", String.valueOf(cursor.getColumnIndex(DatabaseHelper.Vertice.LONGITUDE)));
+
+        Vertice vertice = new Vertice(cursor.getLong(cursor.getColumnIndex(DatabaseHelper.Vertice._ID)),
+                cursor.getString(cursor.getColumnIndex(DatabaseHelper.Vertice.NOME)),
+                cursor.getDouble(cursor.getColumnIndex(DatabaseHelper.Vertice.LATITUDE)),
+                cursor.getDouble(cursor.getColumnIndex(DatabaseHelper.Vertice.LONGITUDE)));
+        return vertice;
+    }
+
+    //METODOS ARESTA
+
+    public ArrayList<Aresta> listarArestas(){
+        Cursor cursor = getDb().query(DatabaseHelper.Aresta.TABELA,
+                DatabaseHelper.Aresta.COLUNAS,
+                null, null, null, null, null);
+        ArrayList<Aresta> arestas = new ArrayList<Aresta>();
+        while(cursor.moveToNext()){
+            Aresta aresta = criarAresta(cursor);
+            arestas.add(aresta);
+        }
+        cursor.close();
+        return arestas;
+    }
+
+    public Aresta buscarArestaPorId(Long id){
+        Log.i("chegou aqui","MSG");
+        Cursor cursor = getDb().query(DatabaseHelper.Aresta.TABELA, DatabaseHelper.Aresta.COLUNAS, DatabaseHelper.Aresta._ID + "=?", new String[]{id.toString()},
+                null, null, null);
+
+        if(cursor.getCount()>0){
+            cursor.moveToFirst();
+            Aresta aresta = criarAresta(cursor);
+            cursor.close();
+            return aresta;
+        }
+        return null;
+    }
+
+    private Aresta criarAresta (Cursor cursor) {
+        Vertice origem = buscarVerticePorId(cursor.getLong(cursor.getColumnIndex(DatabaseHelper.Aresta.ID_VERTICE_ORIGEM)));
+        Vertice destino = buscarVerticePorId(cursor.getLong(cursor.getColumnIndex(DatabaseHelper.Aresta.ID_VERTICE_DESTINO)));
+        Aresta aresta = new Aresta(cursor.getLong(cursor.getColumnIndex(DatabaseHelper.Aresta._ID)),
+                origem,
+                destino,
+                cursor.getDouble(cursor.getColumnIndex(DatabaseHelper.Aresta.PESO)));
+        return aresta;
     }
 }
 

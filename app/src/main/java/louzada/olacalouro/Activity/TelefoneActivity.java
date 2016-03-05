@@ -25,7 +25,7 @@ public class TelefoneActivity extends FragmentActivity {
 
         TabHost.TabSpec spec = tabHost.newTabSpec("tab_creation");
         // text and image of tab
-        spec.setIndicator("Create adresse");
+        spec.setIndicator("Contatos CA's");
         // specify layout of tab
         spec.setContent(R.id.linearLayout);
         // adding tab in TabHost

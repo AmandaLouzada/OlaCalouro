@@ -9,32 +9,32 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.util.LogPrinter;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import louzada.olacalouro.Dijkstra;
+import louzada.olacalouro.Grafo;
 import louzada.olacalouro.OlaCalouroDAO;
 import louzada.olacalouro.R;
 import louzada.olacalouro.domain.Telefone;
+import louzada.olacalouro.domain.Vertice;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private OlaCalouroDAO dao;
-    private Long numero = Long.valueOf(2);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        List<Telefone> telefones = new ArrayList<Telefone>();
-        Telefone telefone = new Telefone();
+
         dao = new OlaCalouroDAO(this);
-        telefone = dao.buscarTelefonePorId(numero);
-        Log.i("Comeca",telefone.getNome());
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_mapa) {
-            Intent it = new Intent(this, MapaUftActivity.class);
+            Intent it = new Intent(this, MapaActivity.class);
             startActivity(it);
             // Handle the camera action
         } else if (id == R.id.nav_ru) {
@@ -96,13 +96,10 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_telefones) {
             Intent it = new Intent(this, TelefoneActivity.class);
             startActivity(it);
-        }else if (id == R.id.nav_portal_aluno) {
-
-        }else if (id == R.id.nav_biblioteca) {
-
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }
